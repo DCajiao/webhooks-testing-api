@@ -22,8 +22,13 @@ def get_logs():
         data = file.read()
     return data
 
+@app.route('/delete', methods=['DELETE'])
+def delete_logs():
+    with open('logs/data.txt', 'w') as file:
+        file.write('')
+    return 'Logs deleted'
 
 if __name__ == '__main__':
     if not os.path.exists('logs'):
         os.makedirs('logs')
-    app.run(debug=True, port=5000)
+    app.run(host="0.0.0.0", debug=True, port=5000)
