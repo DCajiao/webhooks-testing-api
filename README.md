@@ -13,6 +13,8 @@ Esta API tiene 3 endpoints:
 ├── logs/                # Carpeta para almacenar los logs
 │   └── data.txt         # Archivo donde se registran los datos
 ├── main.py              # Código de la API
+├── Dockerfile           # Archivo Docker para correr la API
+├── requirements.txt     # Dependencias del proyecto
 └── README.md            # Este increíble archivo
 ```
 
@@ -28,7 +30,7 @@ cd webhook-tester-api
 ### 2. Instalar dependencias:
 Asegúrate de tener Flask instalado. Si no lo tienes, puedes instalarlo con:
 ```bash
-pip install flask
+pip install -r requirements.txt
 ```
 
 ### 3. Ejecutar la API:
@@ -38,7 +40,22 @@ python main.py
 ```
 Ahora tu API debería estar corriendo en `http://localhost:5000` 🎉
 
-### 4. Prueba los endpoints:
+### 4. Usar Docker 🐳 (¡la forma cool de correr tu API!)
+Si prefieres usar Docker (y claro que sí), sigue estos pasos:
+
+#### 1. Crear la imagen de Docker:
+```bash
+docker build -t webhook-tester-api .
+```
+
+#### 2. Correr la API en un contenedor:
+```bash
+docker run -d -p 5000:5000 webhook-tester-api
+```
+
+¡Y voilà! 🎉 Tu API está lista en `http://localhost:5000`.
+
+### 5. Prueba los endpoints:
 #### **Enviar datos a `/post`** 📨
 Haz una solicitud `POST` a `/post` con un JSON para guardar datos en los logs.
 ```bash
@@ -69,4 +86,5 @@ curl -X DELETE http://localhost:5000/delete
 
 ---
 
-¡Disfruta probando tus webhooks! 🌈
+¡Disfruta probando tus webhooks con Docker o sin Docker! 🐳🌈
+
