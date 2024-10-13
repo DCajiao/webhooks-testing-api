@@ -1,90 +1,89 @@
 # 🚀 Webhook Tester API 🌐
 
-¡Bienvenido a **Webhook Tester API**! 🎉 Este proyecto es una API simple para probar tus webhooks, registrar las solicitudes y manejarlas fácilmente. ¡Perfecto para asegurarte de que todo está funcionando a la perfección antes de ponerlo en producción! 🛠️
+Welcome to **Webhook Tester API**! 🎉 This project is a simple API for testing your webhooks, logging the requests, and handling them easily. Perfect for ensuring everything is working smoothly before going live! 🛠️
 
-## 💡 ¿Qué hace esta API?
-Esta API tiene 3 endpoints:
-1. **/post** – Recibe solicitudes `POST` y guarda los datos en un archivo de logs.
-2. **/get** – Devuelve todo el contenido registrado en los logs.
-3. **/delete** – Limpia todos los logs, ¡como si nada hubiera pasado! ✨
+## 💡 What does this API do?
+This API has 3 endpoints:
+1. **/post** – Receives `POST` requests and saves the data into a log file.
+2. **/get** – Returns all the logged data.
+3. **/delete** – Clears all logs, like nothing ever happened! ✨
 
-## 📂 Estructura de archivos
+## 📂 File Structure
 ```
-├── logs/                # Carpeta para almacenar los logs
-│   └── data.txt         # Archivo donde se registran los datos
-├── main.py              # Código de la API
-├── Dockerfile           # Archivo Docker para correr la API
-├── requirements.txt     # Dependencias del proyecto
-└── README.md            # Este increíble archivo
+├── logs/                # Folder to store the logs
+│   └── data.txt         # File where the data is logged
+├── main.py              # API code
+├── Dockerfile           # Docker file to run the API
+├── requirements.txt     # Project dependencies
+└── README.md            # This awesome file
 ```
 
-## 🚀 Cómo usar la API
+## 🚀 How to use the API
 
-### 1. Clonar el repositorio:
-Primero, clona el repo para tener todo listo en tu máquina.
+### 1. Clone the repository:
+First, clone the repo to have everything ready on your machine.
 ```bash
-git clone https://github.com/tu-repositorio/webhook-tester-api.git
+git clone https://github.com/your-repo/webhook-tester-api.git
 cd webhook-tester-api
 ```
 
-### 2. Instalar dependencias:
-Asegúrate de tener Flask instalado. Si no lo tienes, puedes instalarlo con:
+### 2. Install dependencies:
+Make sure you have Flask installed. If not, you can install it with:
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Ejecutar la API:
-Arranca el servidor Flask con el siguiente comando:
+### 3. Run the API:
+Start the Flask server with the following command:
 ```bash
 python main.py
 ```
-Ahora tu API debería estar corriendo en `http://localhost:5000` 🎉
+Now your API should be running on `http://localhost:5000` 🎉
 
-### 4. Usar Docker 🐳 (¡la forma cool de correr tu API!)
-Si prefieres usar Docker (y claro que sí), sigue estos pasos:
+### 4. Use Docker 🐳 (the cool way to run your API!)
+If you prefer using Docker (and of course you do), follow these steps:
 
-#### 1. Crear la imagen de Docker:
+#### 1. Create the Docker image:
 ```bash
 docker build -t webhook-tester-api .
 ```
 
-#### 2. Correr la API en un contenedor:
+#### 2. Run the API in a container:
 ```bash
 docker run -d -p 5000:5000 webhook-tester-api
 ```
 
-¡Y voilà! 🎉 Tu API está lista en `http://localhost:5000`.
+And voilà! 🎉 Your API is ready at `http://localhost:5000`.
 
-### 5. Prueba los endpoints:
-#### **Enviar datos a `/post`** 📨
-Haz una solicitud `POST` a `/post` con un JSON para guardar datos en los logs.
+### 5. Test the endpoints:
+#### **Send data to `/post`** 📨
+Make a `POST` request to `/post` with a JSON to log data.
 ```bash
-curl -X POST http://localhost:5000/post -H "Content-Type: application/json" -d '{"mensaje": "¡Hola, webhook!"}'
+curl -X POST http://localhost:5000/post -H "Content-Type: application/json" -d '{"message": "Hello, webhook!"}'
 ```
 
-#### **Consultar los logs en `/get`** 📜
-Accede a todos los datos registrados con una solicitud `GET`.
+#### **Retrieve logs at `/get`** 📜
+Access all logged data with a `GET` request.
 ```bash
 curl http://localhost:5000/get
 ```
 
-#### **Eliminar los logs con `/delete`** 🗑️
-Limpia todos los registros con una solicitud `DELETE`.
+#### **Clear logs with `/delete`** 🗑️
+Clear all logs with a `DELETE` request.
 ```bash
 curl -X DELETE http://localhost:5000/delete
 ```
 
-## 📝 Notas:
-- Todos los datos se almacenan en el archivo `logs/data.txt` en formato de texto plano.
-- Los logs se guardan con un timestamp 🕒, así que siempre sabrás cuándo recibiste una solicitud.
-- ¡Recuerda no exponer esta API en producción sin seguridad! 🚨
+## 📝 Notes:
+- All data is stored in the `logs/data.txt` file in plain text format.
+- Logs are saved with a timestamp 🕒, so you'll always know when a request was received.
+- Remember not to expose this API in production without security! 🚨
 
-## 🤖 ¿Qué sigue?
-- Implementar autenticación básica 🔒 para que solo tú puedas acceder a los logs.
-- Integrar una base de datos para guardar los datos de manera más robusta.
-- ¡O lo que se te ocurra! 🎨
+## 🤖 What’s next?
+- Implement basic authentication 🔒 so only you can access the logs.
+- Integrate a database for more robust data storage.
+- Or whatever you can think of! 🎨
 
 ---
 
-¡Disfruta probando tus webhooks con Docker o sin Docker! 🐳🌈
-
+Enjoy testing your webhooks with or without Docker! 🐳🌈
