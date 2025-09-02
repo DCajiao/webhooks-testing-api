@@ -9,10 +9,11 @@ logging.basicConfig(level=logging.INFO, filename='logs/data.txt', filemode='a', 
 
 app = Flask(__name__)
 
-@app.route('/post', methods=['POST'])
-def post():
+@app.route('/post', defaults={'subpath': ''}, methods=['POST'])
+@app.route('/post/<path:subpath>', methods=['POST'])
+def post(subpath):
     data = request.json
-    logging.info(data)
+    logging.info(f"Received data for {subpath}: {data}")
     return 'Data saved', 200
 
 
